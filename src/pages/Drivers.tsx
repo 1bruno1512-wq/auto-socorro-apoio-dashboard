@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import Layout from '../components/Layout'
 import DriverModal from '../components/drivers/DriverModal'
 import TripHistoryModal from '../components/drivers/TripHistoryModal'
 
@@ -123,8 +122,7 @@ export default function Drivers() {
   }
 
   return (
-    <Layout>
-      <div className="p-6">
+    <div className="p-6">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Motoristas</h1>
@@ -362,7 +360,6 @@ export default function Drivers() {
           onClose={() => setShowTripHistory(false)}
         />
       )}
-      </div>
-    </Layout>
+    </div>
   )
 }
