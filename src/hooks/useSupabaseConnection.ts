@@ -19,19 +19,11 @@ export function useSupabaseConnection() {
   useEffect(() => {
     async function testConnection() {
       try {
-        // Testa a conexão fazendo uma query simples
-        const { data, error } = await supabase
-          .from('_realtime')
-          .select('*')
-          .limit(1)
+        // Testa a conexão verificando a sessão
+        const { error } = await supabase.auth.getSession()
         
-        if (error && error.code !== 'PGRST200') {
-          // Se não houver tabela _realtime, tenta uma query alternativa
-          const { error: healthError } = await supabase.auth.getSession()
-          
-          if (healthError) {
-            throw healthError
-          }
+        if (error) {
+          throw error
         }
 
         setStatus({
@@ -39,7 +31,7 @@ export function useSupabaseConnection() {
           loading: false,
           error: null,
           projectInfo: {
-            url: supabase.supabaseUrl,
+            url: import.meta.env.VITE_SUPABASE_URL,
             connected_at: new Date().toISOString()
           }
         })
