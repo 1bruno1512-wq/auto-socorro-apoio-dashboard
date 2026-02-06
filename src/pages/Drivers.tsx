@@ -122,40 +122,40 @@ export default function Drivers() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-0 lg:p-6">
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Motoristas</h1>
-        <p className="text-gray-600">Gerencie os motoristas da sua frota</p>
+      <div className="mb-4 lg:mb-6">
+        <h1 className="text-xl lg:text-2xl font-bold text-gray-900 mb-1 lg:mb-2">Motoristas</h1>
+        <p className="text-sm lg:text-base text-gray-600">Gerencie os motoristas da sua frota</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm font-medium text-gray-600">Total</p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">{stats.total}</p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-4 lg:mb-6">
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
+          <p className="text-xs lg:text-sm font-medium text-gray-600">Total</p>
+          <p className="mt-1 text-xl lg:text-2xl font-bold text-gray-900">{stats.total}</p>
         </div>
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm font-medium text-gray-600">Ativos</p>
-          <p className="mt-1 text-2xl font-bold text-green-600">{stats.ativos}</p>
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
+          <p className="text-xs lg:text-sm font-medium text-gray-600">Ativos</p>
+          <p className="mt-1 text-xl lg:text-2xl font-bold text-green-600">{stats.ativos}</p>
         </div>
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm font-medium text-gray-600">Em Viagem</p>
-          <p className="mt-1 text-2xl font-bold text-blue-600">{stats.emViagem}</p>
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
+          <p className="text-xs lg:text-sm font-medium text-gray-600">Em Viagem</p>
+          <p className="mt-1 text-xl lg:text-2xl font-bold text-blue-600">{stats.emViagem}</p>
         </div>
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
-          <p className="text-sm font-medium text-gray-600">Inativos</p>
-          <p className="mt-1 text-2xl font-bold text-gray-600">{stats.inativos}</p>
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
+          <p className="text-xs lg:text-sm font-medium text-gray-600">Inativos</p>
+          <p className="mt-1 text-xl lg:text-2xl font-bold text-gray-600">{stats.inativos}</p>
         </div>
       </div>
 
       {/* Toolbar */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+      <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4 mb-4 lg:mb-6">
+        <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
           <div className="flex-1 w-full sm:max-w-md">
             <div className="relative">
               <svg
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -172,14 +172,14 @@ export default function Drivers() {
                 placeholder="Buscar por nome, CPF ou telefone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-9 lg:pl-10 pr-3 lg:pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
           </div>
 
           <button
             onClick={handleCreateDriver}
-            className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2 touch-manipulation"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -246,10 +246,10 @@ export default function Drivers() {
         </div>
       ) : (
         /* Drivers Grid */
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {filteredDrivers.map((driver) => (
-            <div key={driver.id} className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition">
-              <div className="p-6">
+            <div key={driver.id} className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition touch-manipulation">
+              <div className="p-4 lg:p-6">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
