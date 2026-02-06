@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { useAuth } from '../contexts/AuthContext'
+
 // Mock data
 const mockOrders = [
   {
@@ -63,6 +66,22 @@ const getStatusLabel = (status: string) => {
 }
 
 export default function Dashboard() {
+  const { user, signOut } = useAuth()
+  const [showUserMenu, setShowUserMenu] = useState(false)
+
+  const handleLogout = async () => {
+    await signOut()
+  }
+
+  const getUserInitials = () => {
+    if (!user?.email) return 'AS'
+    return user.email.substring(0, 2).toUpperCase()
+  }
+
+  const getUserEmail = () => {
+    return user?.email || 'admin@apoio.com.br'
+  }
+
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
@@ -111,14 +130,42 @@ export default function Dashboard() {
         </nav>
         
         <div className="p-4 border-t border-gray-200">
-          <div className="flex items-center gap-3 px-4 py-3">
-            <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
-              AS
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900 truncate">Admin</p>
-              <p className="text-xs text-gray-500 truncate">admin@apoio.com.br</p>
-            </div>
+          <div className="relative">
+            <button
+              onClick={() => setShowUserMenu(!showUserMenu)}
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition"
+            >
+              <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
+                {getUserInitials()}
+              </div>
+              <div className="flex-1 min-w-0 text-left">
+                <p className="text-sm font-medium text-gray-900 truncate">Usuário</p>
+                <p className="text-xs text-gray-500 truncate">{getUserEmail()}</p>
+              </div>
+              <svg
+                className={`w-5 h-5 text-gray-400 transition-transform ${showUserMenu ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* User Menu Dropdown */}
+            {showUserMenu && (
+              <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                <button
+                  onClick={handleLogout}
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                  Sair
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
