@@ -142,33 +142,33 @@ export default function Veiculos() {
   )
 
   return (
-    <div className="p-6">
+    <div className="p-0 lg:p-6">
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Gestão de Veículos</h1>
-        <p className="text-gray-600">Gerencie a frota de veículos de socorro e transporte</p>
+      <div className="mb-4 lg:mb-6">
+        <h1 className="text-xl lg:text-2xl font-bold text-gray-900 mb-1 lg:mb-2">Gestão de Veículos</h1>
+        <p className="text-sm lg:text-base text-gray-600">Gerencie a frota de veículos de socorro e transporte</p>
       </div>
 
       {/* Actions Bar */}
-      <div className="flex items-center justify-between mb-6 gap-4">
-        <div className="flex-1 max-w-md">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between mb-4 lg:mb-6 gap-3">
+        <div className="flex-1 w-full sm:max-w-md">
           <div className="relative">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 lg:w-5 lg:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <input
               type="text"
-              placeholder="Buscar por marca, modelo, placa ou tipo..."
+              placeholder="Buscar por marca, modelo, placa..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-9 lg:pl-10 pr-3 lg:pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
         </div>
         
         <button
           onClick={handleAddVeiculo}
-          className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 flex items-center gap-2"
+          className="w-full sm:w-auto px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2 touch-manipulation"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -178,52 +178,52 @@ export default function Veiculos() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 mb-4 lg:mb-6">
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 lg:w-6 lg:h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-xl lg:text-2xl font-bold text-gray-900">
                 {veiculos.filter(v => v.status === 'disponivel').length}
               </p>
-              <p className="text-sm text-gray-600">Disponíveis</p>
+              <p className="text-xs lg:text-sm text-gray-600">Disponíveis</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-xl lg:text-2xl font-bold text-gray-900">
                 {veiculos.filter(v => v.status === 'em_uso').length}
               </p>
-              <p className="text-sm text-gray-600">Em Uso</p>
+              <p className="text-xs lg:text-sm text-gray-600">Em Uso</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
+        <div className="bg-white rounded-lg border border-gray-200 p-3 lg:p-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 lg:w-6 lg:h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-xl lg:text-2xl font-bold text-gray-900">
                 {veiculos.filter(v => v.status === 'manutencao').length}
               </p>
-              <p className="text-sm text-gray-600">Em Manutenção</p>
+              <p className="text-xs lg:text-sm text-gray-600">Em Manutenção</p>
             </div>
           </div>
         </div>
@@ -267,14 +267,14 @@ export default function Veiculos() {
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {filteredVeiculos.map((veiculo) => (
             <div
               key={veiculo.id}
-              className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition"
+              className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition touch-manipulation"
             >
               {/* Veículo Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+              <div className="h-40 lg:h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                 {veiculo.foto_url ? (
                   <img src={veiculo.foto_url} alt={`${veiculo.marca} ${veiculo.modelo}`} className="w-full h-full object-cover" />
                 ) : (
@@ -285,7 +285,7 @@ export default function Veiculos() {
               </div>
 
               {/* Veículo Info */}
-              <div className="p-4">
+              <div className="p-4 lg:p-5">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900">
@@ -314,16 +314,16 @@ export default function Veiculos() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-stretch gap-2">
                   <button
                     onClick={() => handleEditVeiculo(veiculo)}
-                    className="flex-1 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+                    className="flex-1 px-3 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition touch-manipulation"
                   >
                     Editar
                   </button>
                   <button
                     onClick={() => handleMarcarManutencao(veiculo)}
-                    className={`flex-1 px-3 py-2 text-sm font-medium rounded-lg transition ${
+                    className={`flex-1 px-3 py-2.5 text-sm font-medium rounded-lg transition touch-manipulation ${
                       veiculo.status === 'manutencao'
                         ? 'text-green-700 bg-green-100 hover:bg-green-200'
                         : 'text-orange-700 bg-orange-100 hover:bg-orange-200'
@@ -333,11 +333,12 @@ export default function Veiculos() {
                   </button>
                   <button
                     onClick={() => handleDeleteVeiculo(veiculo.id)}
-                    className="px-3 py-2 text-sm font-medium text-red-700 bg-red-100 rounded-lg hover:bg-red-200 transition"
+                    className="sm:w-auto px-3 py-2.5 text-sm font-medium text-red-700 bg-red-100 rounded-lg hover:bg-red-200 transition touch-manipulation flex items-center justify-center gap-2"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
+                    <span className="sm:hidden">Excluir</span>
                   </button>
                 </div>
               </div>

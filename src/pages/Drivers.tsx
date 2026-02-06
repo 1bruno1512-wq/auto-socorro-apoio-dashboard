@@ -309,23 +309,23 @@ export default function Drivers() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <button
                     onClick={() => handleViewHistory(driver.id)}
-                    className="flex-1 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+                    className="flex-1 px-3 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition touch-manipulation"
                   >
                     Histórico
                   </button>
                   <button
                     onClick={() => handleEditDriver(driver)}
-                    className="flex-1 px-3 py-2 text-sm font-medium text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+                    className="flex-1 px-3 py-2.5 text-sm font-medium text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition touch-manipulation"
                   >
                     Editar
                   </button>
                   {driver.status !== 'inativo' && (
                     <button
                       onClick={() => handleDeactivateDriver(driver)}
-                      className="px-3 py-2 text-sm font-medium text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition"
+                      className="sm:w-auto px-3 py-2.5 text-sm font-medium text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition touch-manipulation flex items-center justify-center gap-2"
                       title="Desativar"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -336,6 +336,7 @@ export default function Drivers() {
                           d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
                         />
                       </svg>
+                      <span className="sm:hidden">Desativar</span>
                     </button>
                   )}
                 </div>
