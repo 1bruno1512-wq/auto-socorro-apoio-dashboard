@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 // Mock data
 const mockOrders = [
   {
@@ -65,8 +63,6 @@ const getStatusLabel = (status: string) => {
 }
 
 export default function Dashboard() {
-  const [selectedOrder, setSelectedOrder] = useState<string | null>(null)
-
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
@@ -199,7 +195,6 @@ export default function Dashboard() {
                   <div
                     key={order.id}
                     className="p-6 hover:bg-gray-50 cursor-pointer transition"
-                    onClick={() => setSelectedOrder(order.id)}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
