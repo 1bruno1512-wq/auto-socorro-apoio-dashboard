@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
-import Dashboard from './components/Dashboard'
+import Layout from './components/Layout'
+import DashboardHome from './pages/DashboardHome'
 import Login from './pages/Login'
+import Veiculos from './pages/Veiculos'
+import Drivers from './pages/Drivers'
 
 function App() {
   return (
@@ -14,7 +17,29 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <Layout>
+                  <DashboardHome />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/veiculos"
+            element={
+              <ProtectedRoute>
+                <Layout>
+                  <Veiculos />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/motoristas"
+            element={
+              <ProtectedRoute>
+                <Layout>
+                  <Drivers />
+                </Layout>
               </ProtectedRoute>
             }
           />
