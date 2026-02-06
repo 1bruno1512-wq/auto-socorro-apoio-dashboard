@@ -1,73 +1,112 @@
-# React + TypeScript + Vite
+# Auto Socorro Apoio - Dashboard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard moderno e responsivo para sistema de gestão de transporte de veículos e auto socorro.
 
-Currently, two official plugins are available:
+## 🚀 Stack Técnica
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Vite** - Build tool ultra-rápido
+- **React 18** - Framework UI
+- **TypeScript** - Type safety
+- **TailwindCSS** - Styling utility-first
 
-## React Compiler
+## ✨ Funcionalidades Implementadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Interface Completa
+- ✅ **Sidebar** com navegação (Dashboard, Ordens, Rastreamento, Motoristas, Financeiro)
+- ✅ **Header** com busca e notificações
+- ✅ **Cards de estatísticas** (Ordens Ativas, Veículos em Rota, Entregas, Faturamento)
+- ✅ **Lista de ordens ativas** com status, origem/destino, motorista, ETA
+- ✅ **Placeholder para mapa** (pronto para integrar Google Maps / Leaflet)
+- ✅ **Design responsivo** mobile-first
+- ✅ **Dados mock** para visualização
 
-## Expanding the ESLint configuration
+### Design System
+- Cores profissionais (azul como cor primária)
+- Tipografia limpa e legível
+- Espaçamentos consistentes
+- Feedback visual (hover, active states)
+- Badge de status coloridos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎨 Preview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Componentes Principais:
+1. **Sidebar** - Menu lateral fixo com navegação
+2. **Header** - Busca global + notificações + configurações
+3. **Stats Cards** - 4 cards com métricas principais
+4. **Orders List** - Lista de ordens ativas com detalhes
+5. **Map Panel** - Área reservada para mapa interativo
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Como Rodar
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Desenvolvimento
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Acesse: `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Build
+```bash
+npm run build
 ```
+
+### Preview da Build
+```bash
+npm run preview
+```
+
+## 📦 Deploy
+
+### Vercel (Recomendado)
+```bash
+# Via CLI
+vercel --prod
+
+# Ou conecte o repo no dashboard do Vercel
+```
+
+### GitHub + Vercel (Automático)
+1. Crie repo no GitHub
+2. Conecte no Vercel
+3. Deploy automático a cada push
+
+## 🎯 Próximos Passos
+
+### MVP - Fase 1
+- [ ] Integrar mapa real (Google Maps ou Leaflet)
+- [ ] Conectar com Supabase (API real)
+- [ ] Autenticação (login/logout)
+- [ ] CRUD de ordens de serviço
+- [ ] Rastreamento GPS em tempo real
+
+### Fase 2
+- [ ] App Mobile para motoristas
+- [ ] Painel do cliente
+- [ ] Módulo financeiro
+- [ ] Relatórios gerenciais
+
+## 📂 Estrutura de Pastas
+```
+src/
+├── components/
+│   └── Dashboard.tsx    # Componente principal
+├── App.tsx              # Root component
+├── main.tsx             # Entry point
+└── index.css            # Global styles + Tailwind
+```
+
+## 🎨 Paleta de Cores
+
+- **Primária:** Blue 600 (#2563EB)
+- **Sucesso:** Green 600 (#059669)
+- **Alerta:** Yellow 600 (#D97706)
+- **Erro:** Red 600 (#DC2626)
+- **Neutro:** Gray 50-900
+
+## 📝 Notas
+
+- Dashboard 100% funcional com dados mock
+- Pronto para integração com backend
+- Design baseado em referências modernas de dashboards
+- Componentizado para fácil manutenção
